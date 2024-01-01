@@ -1,6 +1,10 @@
 package main
 
-import "github.com/Alvphil/pokedexcli/internal/pokeapi"
+import (
+	"time"
+
+	"github.com/Alvphil/pokedexcli/internal/pokeapi"
+)
 
 type config struct {
 	pokeapiClient    pokeapi.Client
@@ -13,7 +17,7 @@ func main() {
 	defaultPreviousLocation := ""
 
 	cfg := config{
-		pokeapiClient:    pokeapi.NewClient(),
+		pokeapiClient:    pokeapi.NewClient(time.Hour),
 		nextLocation:     &defaultNextLocation,
 		previousLocation: &defaultPreviousLocation,
 	}
