@@ -22,7 +22,7 @@ func commandCatch(cfg *config, args ...string) error {
 	if randnum > threshold {
 		return fmt.Errorf("failed to catch %s!", pokemonName)
 	}
-
+	cfg.caughtPokemon[pokemonName] = pokemon
 	fmt.Printf("You caught %s\n", pokemonName)
 	return nil
 }
