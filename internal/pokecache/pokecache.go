@@ -50,7 +50,7 @@ func (c *Cache) reapLoop(interval time.Duration) {
 func (c *Cache) reap(interval time.Duration) {
 	c.mux.Lock()
 	defer c.mux.Unlock()
-	timeAgo := time.Now().UTC().Add(-interval)
+	timeAgo := time.Now().UTC().Add(-interval) 
 	for k, v := range c.cache {
 		if v.createdAt.Before(timeAgo) {
 			delete(c.cache, k)
